@@ -1,6 +1,6 @@
 import { expect } from 'chai';
-import Node from '../lib/Node.js'
-import Trie from '../lib/Trie.js'
+import Node from '../lib/Node.js';
+import Trie from '../lib/Trie.js';
 
 
 describe('Node test', () => {
@@ -13,11 +13,13 @@ describe('Node test', () => {
     expect(node).to.exist
   })
 
-  it.skip('should start with null as a default', () => {
+  it('should start with null as a default', () => {
     expect(node.letter).to.equal(null)
   })
 
-  it.skip('should have no children', () => {
+  it (should take a letter as a parameter and assign it to a node)
+
+  it('should have no children', () => {
     expect(node.children).to.deep.equal({});
   })
 })
