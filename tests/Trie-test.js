@@ -14,15 +14,24 @@ describe('Trie test', () => {
   })
 
   it('should be able to insert a word into the trie', () => {
-    var completion = new Trie();
+    let completion = new Trie();
     completion.insert('race');
     completion.insert('rain');
     console.log(JSON.stringify(completion, null, 2));
   })
 
   it('should populate a dictionary', () => {
-    var completion = new Trie();
+    let completion = new Trie();
         completion.populate(dictionary);
     expect(completion.count).to.equal(235886)
+  })
+
+  it('should suggest a word when given a letter', () => {
+    let completion = new Trie();
+        completion.insert('pizza');
+        completion.insert('apple');
+        completion.insert('appeal');
+    expect(completion.suggest('piz')).to.deep.equal(['pizza']);
+
   })
 })

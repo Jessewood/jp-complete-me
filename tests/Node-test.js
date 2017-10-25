@@ -5,10 +5,20 @@ import Trie from '../lib/Trie.js'
 
 describe('Node test', () => {
 
-  it('should be a function', () => {
-    expect(Node).to.be.a('function');
+  beforeEach(() => {
+    node = new Node()
+
+
+  it('should be a thing', () => {
+    expect(node).to.exist
   })
-  it('should take a letter', () => { 
-    expect()
+
+  it.skip('should start with null as a default', () => {
+    expect(node.letter).to.equal(null)
   })
+
+  it.skip('should have no children', () => {
+    expect(node.children).to.deep.equal({});
+  })
+})
 })
