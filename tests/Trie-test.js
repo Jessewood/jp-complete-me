@@ -80,14 +80,6 @@ describe('Suggest', () => {
     trie.insert('xj');
     expect(trie.suggest('xj')).to.deep.equal([]);
   });
-  it('should move words with a higher frequency to the front of the suggestions array', () => {
-    trie.insert('car');
-    trie.insert('card');
-    trie.insert('cart');
-    expect(trie.suggest('ca')).to.deep.equal((['car', 'card', 'cart']));
-    trie.select('cart');
-    expect(trie.suggest('ca')).to.deep.equal((['cart', 'car', 'card']));
-  });
 });
 
 describe('Populate', () => {
@@ -128,6 +120,15 @@ describe('Select', () => {
     expect(trie.root.children.p.children.i.children.e.frequency).to.equal(1);
     trie.select('pie');
     expect(trie.root.children.p.children.i.children.e.frequency).to.equal(2);
+  });
+  
+  it('should move words with a higher frequency to the front of the suggestions array', () => {
+    trie.insert('car');
+    trie.insert('card');
+    trie.insert('cart');
+    expect(trie.suggest('ca')).to.deep.equal((['car', 'card', 'cart']));
+    trie.select('cart');
+    expect(trie.suggest('ca')).to.deep.equal((['cart', 'car', 'card']));
   });
 
 });
